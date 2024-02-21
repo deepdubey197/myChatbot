@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Models</title>
+</head>
+<body>
+    <h1>Combined Models</h1>
+
+    <h2>Question Answering</h2>
+    <form action="/qa_predict" method="post">
+        <label for="question">Enter your question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Predict Answer</button>
+    </form>
+    {% if qa_question %}
+    <p><strong>Question:</strong> {{ qa_question }}</p>
+    <p><strong>Predicted Answer:</strong> {{ qa_answer }}</p>
+    {% endif %}
+
+    <h2>Next Word Prediction</h2>
+    <form action="/nw_predict" method="post">
+        <label for="input_sentence">Enter text to predict next four words:</label>
+        <input type="text" id="input_sentence" name="input_sentence" required>
+        <button type="submit">Predict Next Words</button>
+    </form>
+    {% if nw_input %}
+    <p><strong>Input Sentence:</strong> {{ nw_input }}</p>
+    <p><strong>Predicted Next Four Words:</strong> {{ nw_prediction }}</p>
+    {% endif %}
+</body>
+</html>
 
